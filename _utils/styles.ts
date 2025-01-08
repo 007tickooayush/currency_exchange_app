@@ -2,37 +2,36 @@
 
 import { StyleSheet } from 'react-native';
 
-export const primaryBgColor = '#F56416';
-export const secondaryBgColor = '#E28413';
+export const primaryBgColor = '#151B25';
+export const secondaryBgColor = '#214358';
 
-export const primaryBtnColor = '#DD4B1A';
-export const secondaryBtnColor = '#FCCA46';
+export const primaryBtnColor = '#AEB8C4';
+export const secondaryBtnColor = '#9CA6B8';
 
-export const primaryTxtColor = '#FEFFEA';
-export const secondaryTxtColor = '#E4E4DA';
+export const primaryTxtColor = '#E3E7F1';
+export const secondaryTxtColor = '#BDC6D9';
 
 
 export const styles = StyleSheet.create({
     mainContainer: {
-        flex: 1,
         justifyContent: 'flex-start',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         flexDirection: 'row',
         backgroundColor: primaryBgColor,
-        height: 'auto'
+        height: '100%',
     },
     curTileContainer: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
         minHeight: 100,
         width: 200,
-        borderColor: 'black',
+        borderColor: secondaryTxtColor,
         borderWidth: 2,
         borderRadius: 20,
         margin: 10,
         paddingVertical: 12,
         paddingHorizontal: 10,
-        backgroundColor: primaryBtnColor
+        backgroundColor: secondaryBtnColor
     },
     curHeadingText: {
         color: primaryTxtColor,
