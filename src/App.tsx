@@ -1,8 +1,10 @@
 import { useEffect } from "react";
-import { SafeAreaView, StatusBar } from "react-native";
+import { SafeAreaView, StatusBar, View } from "react-native";
 import { getCurrencies } from "../_utils/api";
 import { Currency } from "../_utils/types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import CurrencyTile from "./currency/CurrencyTile";
+import { primaryBgColor, secondaryBgColor } from "../_utils/styles";
 
 function App(): React.JSX.Element {
 
@@ -18,8 +20,10 @@ function App(): React.JSX.Element {
 
 	return (
 		<SafeAreaView>
-			<StatusBar />
-
+			<View style={{backgroundColor: primaryBgColor, height: '100%'}}>
+				<StatusBar backgroundColor={secondaryBgColor}/>
+				<CurrencyTile />
+			</View>
 		</SafeAreaView>
 	);
 }
