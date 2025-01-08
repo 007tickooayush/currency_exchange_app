@@ -1,5 +1,13 @@
 import { API_URL, API_KEY, API_CUR, API_CWN } from "@env";
 
+export const defaultState = {
+    inputAmt: 0,
+    resultAmt: 0,
+    targetCurrency: 'USD',
+    isLoading:false
+};
+
+export const getValidCurrencyTypes = () => API_CUR.split(',');
 
 export const getVariables = () => {
     return {

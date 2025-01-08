@@ -1,4 +1,4 @@
-export type Currency = {
+export type Currencies = {
     AUD: Number,
     BGN: Number,
     BRL: Number,
@@ -32,4 +32,15 @@ export type Currency = {
     USD: Number,
     ZAR: Number,
     exchange_day: String
-}
+};
+
+
+/**
+ * type to be used for single currency and tile components linked to it
+ */
+export interface CurrTile {
+    target: string;
+    base: string;
+    value: number;
+    description?: string;
+};

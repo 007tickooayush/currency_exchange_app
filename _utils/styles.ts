@@ -19,16 +19,20 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: primaryBgColor,
         height: '100%',
+        flexWrap: 'wrap',
+        padding: 12
     },
     curTileContainer: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        minHeight: 100,
-        width: 200,
+        // minHeight: 100,
+        // width: 200,
+        minHeight: '10%',
+        minWidth: '30%',
         borderColor: secondaryTxtColor,
         borderWidth: 2,
         borderRadius: 20,
-        margin: 10,
+        margin: 4,
         paddingVertical: 12,
         paddingHorizontal: 10,
         backgroundColor: secondaryBtnColor
