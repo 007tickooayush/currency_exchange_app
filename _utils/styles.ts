@@ -26,6 +26,11 @@ export const styles = StyleSheet.create({
         backgroundColor: primaryBgColor,
         // padding: 12
     },
+    headerContainer: {
+        // display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     curTileContainer: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
@@ -46,11 +51,23 @@ export const styles = StyleSheet.create({
     curHeadingText: {
         color: primaryTxtColor,
         fontSize: 24,
+        textAlign: 'center',
     },
     curSubtitleText: {
         color: secondaryTxtColor,
         fontSize: 16,
-    }
+    },
+    loadingContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        height: '100%',
+    },
+    loadingDotsWrapper: {
+        width: 100,
+        paddingTop:16
+    },
 
 });
 

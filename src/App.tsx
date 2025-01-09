@@ -54,32 +54,28 @@ function App(): React.JSX.Element {
 
 
 	return (
-		<SafeAreaView>
+		<SafeAreaView style={{backgroundColor: primaryBgColor}}>
 			<StatusBar backgroundColor={secondaryBgColor} />
-			{
-				isLoading ? (
-					<LoadingComp />
-				) : (
-					<View style={styles.mainContainer}>
-						<View>
-							<Text style={[styles.curHeadingText]}>Exchange Rates As Per Base Currency: {API_CWN}</Text>
-						</View>
-						<ScrollView style={styles.scrollContainer}>
-							{
-								currencies?.currencies ? currencies.currencies.map((curr, idx) => {
-									let [currency, rate] = Object.entries(curr).flat();
-									return <CurrencyTile
-										base="INR"
-										target={currency as string}
-										value={rate as number}
-										key={idx}
-									/>
-								}) : null
-							}
-						</ScrollView>
+			<LoadingComp loading={isLoading}>
+				<View style={styles.mainContainer}>
+					<View>
+						<Text style={[styles.curHeadingText]}>Exchange Rates As Per Base Currency: {API_CWN}</Text>
 					</View>
-				)
-			}
+					<ScrollView style={styles.scrollContainer}>
+						{
+							currencies?.currencies ? currencies.currencies.map((curr, idx) => {
+								let [currency, rate] = Object.entries(curr).flat();
+								return <CurrencyTile
+									base="INR"
+									target={currency as string}
+									value={rate as number}
+									key={idx}
+								/>
+							}) : null
+						}
+					</ScrollView>
+				</View>
+			</LoadingComp>
 		</SafeAreaView>
 	);
 }
