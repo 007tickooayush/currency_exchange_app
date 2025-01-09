@@ -1,36 +1,40 @@
+export type CurrencyKey = 'AUD' |
+    'BGN' |
+    'BRL' |
+    'CAD' |
+    'CHF' |
+    'CNY' |
+    'CZK' |
+    'DKK' |
+    'EUR' |
+    'GBP' |
+    'HKD' |
+    'HRK' |
+    'HUF' |
+    'IDR' |
+    'ILS' |
+    'ISK' |
+    'JPY' |
+    'KRW' |
+    'MXN' |
+    'MYR' |
+    'NOK' |
+    'NZD' |
+    'PHP' |
+    'PLN' |
+    'RON' |
+    'RUB' |
+    'SEK' |
+    'SGD' |
+    'THB' |
+    'TRY' |
+    'USD' |
+    'ZAR';
+export type CurrencySingle = {
+    [key in CurrencyKey]: Number
+};
 export type Currencies = {
-    AUD: Number,
-    BGN: Number,
-    BRL: Number,
-    CAD: Number,
-    CHF: Number,
-    CNY: Number,
-    CZK: Number,
-    DKK: Number,
-    EUR: Number,
-    GBP: Number,
-    HKD: Number,
-    HRK: Number,
-    HUF: Number,
-    IDR: Number,
-    ILS: Number,
-    ISK: Number,
-    JPY: Number,
-    KRW: Number,
-    MXN: Number,
-    MYR: Number,
-    NOK: Number,
-    NZD: Number,
-    PHP: Number,
-    PLN: Number,
-    RON: Number,
-    RUB: Number,
-    SEK: Number,
-    SGD: Number,
-    THB: Number,
-    TRY: Number,
-    USD: Number,
-    ZAR: Number,
+    currencies: CurrencySingle[],
     exchange_day: String
 };
 
@@ -41,6 +45,6 @@ export type Currencies = {
 export interface CurrTile {
     target: string;
     base: string;
-    value: number;
+    value: Number | undefined;
     description?: string;
 };

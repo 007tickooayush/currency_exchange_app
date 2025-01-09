@@ -8,7 +8,7 @@ const CurrencyTile = ({ target, base, value, description }: CurrTile) => {
     return (
         <View style={styles.curTileContainer}>
             <Text style={[styles.curHeadingText]}>{target}</Text>
-            <Text style={[styles.curSubtitleText]}>{value} / {base}</Text>
+            <Text style={[styles.curSubtitleText]}>{value?.toFixed(3)} / {base}</Text>
             {
                 description &&
                 <Text style={[styles.curSubtitleText]}>{description}</Text>

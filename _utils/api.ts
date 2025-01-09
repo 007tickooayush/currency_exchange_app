@@ -1,7 +1,7 @@
 import { API_CUR, API_CWN, API_KEY, API_URL } from "@env";
 import { Currencies } from "./types";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { getCurrentExchangeDate } from "./utils";
+import { getCurrentExchangeDate, processAPIData } from "./utils";
 
 
 /**\
@@ -32,11 +32,16 @@ export const getCurrencies = async (): Promise<Currencies> => {
 
         let { data } = await fetchedData.json();
         let exchange_day = getCurrentExchangeDate();
-        data = { ...data, exchange_day } as Currencies;
-
-        console.log('>>>> API CALL');
-        AsyncStorage.setItem('currencies', JSON.stringify(data));
         
-        return data as Currencies;
+        let processedData = processAPIData(data);
+
+        let currencies: Currencies = {
+            currencies: processedData,
+            exchange_day
+        };
+        console.log('>>>> API CALL');
+        AsyncStorage.setItem('currencies', JSON.stringify(currencies));
+        
+        return currencies;
     }
 }

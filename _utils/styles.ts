@@ -14,21 +14,27 @@ export const secondaryTxtColor = '#BDC6D9';
 
 export const styles = StyleSheet.create({
     mainContainer: {
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        flexDirection: 'row',
+        // justifyContent: 'flex-start',
+        // alignItems: 'flex-start',
+        // flexDirection: 'row',
         backgroundColor: primaryBgColor,
         height: '100%',
-        flexWrap: 'wrap',
+        // flexWrap: 'wrap',
         padding: 12
+    },
+    scrollContainer: {
+        backgroundColor: primaryBgColor,
+        // padding: 12
     },
     curTileContainer: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        // minHeight: 100,
-        // width: 200,
-        minHeight: '10%',
-        minWidth: '30%',
+        minHeight: 100,
+        width: 200,
+        // minHeight: '10%',
+        // minWidth: '30%',
+        // maxHeight: '10%',
+        // maxWidth: '30%',
         borderColor: secondaryTxtColor,
         borderWidth: 2,
         borderRadius: 20,
