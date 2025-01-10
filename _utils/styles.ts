@@ -25,22 +25,34 @@ export const styles = StyleSheet.create({
     scrollContainer: {
         backgroundColor: primaryBgColor,
         // padding: 12
+        alignItems: 'center',
+        // height: 300
     },
     headerContainer: {
         // display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: 100
+        height: 'auto',
+        marginVertical: 8,
+    },
+    resultAmount: {
+        color: primaryTxtColor,
+        fontSize: 22,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginVertical: 2,
     },
     inputField: {
         backgroundColor: secondaryBgColor,
         color: primaryTxtColor,
         width: 200,
         height: 60,
-        borderRadius: 16,
+        borderRadius: 8,
+        borderColor: 'grey',
+        borderWidth: 2,
         textAlign: 'center',
         marginVertical: 8,
-        fontSize: 18
+        fontSize: 18,
     },
     curTileContainer: {
         justifyContent: 'flex-start',
@@ -58,6 +70,9 @@ export const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 10,
         backgroundColor: secondaryBtnColor
+    },
+    curTileContainerPressable: {
+
     },
     curHeadingText: {
         color: primaryTxtColor,
@@ -79,6 +94,7 @@ export const styles = StyleSheet.create({
         width: 100,
         paddingTop:16
     },
+    
 
 });
 

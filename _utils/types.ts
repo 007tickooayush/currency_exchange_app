@@ -47,4 +47,5 @@ export interface CurrTile {
     base: string;
     value: Number | undefined;
     description?: string;
+    isButtonPressed: (targetCurrency: CurrencySingle) => void;
 };

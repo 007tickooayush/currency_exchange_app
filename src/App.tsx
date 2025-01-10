@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, View } from "react-native";
+import { FlatList, SafeAreaView, ScrollView, StatusBar, Text, TextInput, View } from "react-native";
 import { getCurrencies } from "../_utils/api";
-import { Currencies, CurrTile } from "../_utils/types";
+import { Currencies, CurrencySingle, CurrTile } from "../_utils/types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CurrencyTile from "./currency/CurrencyTile";
 import { primaryBgColor, secondaryBgColor, styles } from "../_utils/styles";
@@ -42,7 +42,7 @@ function App(): React.JSX.Element {
 	}, []);
 
 
-	const isButtonPressed = (targetCurrency: CurrTile) => {
+	const isButtonPressed = (targetCurrency: CurrencySingle) => {
 		if (!inputAmt) {
 			return Snackbar.show({
 				text: 'Please enter a valid amount',
@@ -62,26 +62,36 @@ function App(): React.JSX.Element {
 						<Text style={[styles.curHeadingText]}>Exchange Rates As Per Base Currency: {API_CWN}</Text>
 						<TextInput
 							onChangeText={(text) => setInputAmt(Number(text))}
+							value={inputAmt ? inputAmt.toString(): ''}
 							placeholder="Enter Amount"
 							keyboardType="number-pad"
 							maxLength={12}
 							textAlign="center"
 							style={[styles.inputField]}
 						/>
+						
 					</View>
-					<ScrollView style={styles.scrollContainer}>
-						{
-							currencies?.currencies ? currencies.currencies.map((curr, idx) => {
-								let [currency, rate] = Object.entries(curr).flat();
-								return <CurrencyTile
-									base="INR"
-									target={currency as string}
-									value={rate as number}
-									key={idx}
-								/>
-							}) : null
-						}
-					</ScrollView>
+					<FlatList
+						data={currencies?.currencies}
+						numColumns={3}
+						columnWrapperStyle={{flexWrap: 'wrap', justifyContent: 'center'}}
+						scrollEnabled={true}
+						keyExtractor={(el, idx) => Object.keys(el).flat()[0]}
+						renderItem={({ item }) => {
+							let [currency, rate] = Object.entries(item).flat();
+							return <CurrencyTile
+								base={API_CWN}
+								target={currency as string}
+								value={rate as number}
+								isButtonPressed={() => isButtonPressed(item)}
+							/>
+						}}
+						contentContainerStyle={styles.scrollContainer}
+						style={{height: 300}}
+					/>
+					<View>
+						<Text style={[styles.resultAmount]}> INR to {targetCurrency}: {resultAmt}</Text>
+					</View>
 				</View>
 			</LoadingComp>
 		</SafeAreaView>
