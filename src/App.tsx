@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, Text, TextInput, View } from "react-native";
 import { getCurrencies } from "../_utils/api";
 import { Currencies, CurrTile } from "../_utils/types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -30,11 +30,11 @@ function App(): React.JSX.Element {
 			setIsLoading(true);
 
 			setTimeout(() => {
-				console.log('API RETURNED vals: (data.curencies[0], data.exchange_day) >>', data.currencies[0], data.exchange_day);
+				console.log('RETURNED vals: (data.curencies[0], data.exchange_day) >>', data.currencies[0], data.exchange_day);
 				setCurrencies(data);
 				setIsLoading(false);
-				console.log('data :>> ', data);
-			}, 3000);
+				// console.log('data :>> ', data);
+			}, 2000);
 
 		}).catch(err => {
 			console.log('API ERROR : >>', err);
@@ -54,12 +54,20 @@ function App(): React.JSX.Element {
 
 
 	return (
-		<SafeAreaView style={{backgroundColor: primaryBgColor}}>
+		<SafeAreaView style={{ backgroundColor: primaryBgColor }}>
 			<StatusBar backgroundColor={secondaryBgColor} />
 			<LoadingComp loading={isLoading}>
 				<View style={styles.mainContainer}>
-					<View>
+					<View style={styles.headerContainer}>
 						<Text style={[styles.curHeadingText]}>Exchange Rates As Per Base Currency: {API_CWN}</Text>
+						<TextInput
+							onChangeText={(text) => setInputAmt(Number(text))}
+							placeholder="Enter Amount"
+							keyboardType="number-pad"
+							maxLength={12}
+							textAlign="center"
+							style={[styles.inputField]}
+						/>
 					</View>
 					<ScrollView style={styles.scrollContainer}>
 						{

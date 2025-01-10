@@ -29,13 +29,24 @@ export const styles = StyleSheet.create({
     headerContainer: {
         // display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        height: 100
+    },
+    inputField: {
+        backgroundColor: secondaryBgColor,
+        color: primaryTxtColor,
+        width: 200,
+        height: 60,
+        borderRadius: 16,
+        textAlign: 'center',
+        marginVertical: 8,
+        fontSize: 18
     },
     curTileContainer: {
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        minHeight: 100,
-        width: 200,
+        minHeight: 60,
+        width: 100,
         // minHeight: '10%',
         // minWidth: '30%',
         // maxHeight: '10%',
@@ -50,12 +61,12 @@ export const styles = StyleSheet.create({
     },
     curHeadingText: {
         color: primaryTxtColor,
-        fontSize: 24,
+        fontSize: 16,
         textAlign: 'center',
     },
     curSubtitleText: {
         color: secondaryTxtColor,
-        fontSize: 16,
+        fontSize: 10,
     },
     loadingContainer: {
         display: 'flex',
