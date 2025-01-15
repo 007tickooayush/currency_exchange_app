@@ -1,3 +1,5 @@
+### NOTE: `The project is built for educational demonstration and the dependencies used were functional until the last commit of the project. Depcrecated dependencies like async-storage, dotenv, loading-dots, etc. are used which might not work in future if the repository is cloned, hence it is advised to proceed with any alternative for the mentioned libraries.`
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
